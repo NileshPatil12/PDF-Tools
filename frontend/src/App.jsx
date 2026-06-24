@@ -8,6 +8,10 @@ import ImageToPdf from './pages/ImageToPdfPage';
 import WordToPdf from './pages/WordToPdf';
 import HomePage from './pages/HomePage';
 import Footer from './components/layout/Footer';
+import ImageCompressor from './pages/ImageCompressor'
+import ResizeImage from './pages/ResizeImage'
+import JpgToPng from './pages/JpgToPng'
+import PngToJpg from './pages/PngToJpg' 
 
 function App() {
   return (
@@ -19,6 +23,12 @@ function App() {
         <Route path={ROUTES.SPLIT_PDF} element={<SplitPdf />} />
         <Route path={ROUTES.IMAGE_TO_PDF} element={<ImageToPdf />} />
         <Route path={ROUTES.WORD_TO_PDF} element={<WordToPdf />} />
+        <Route path={ROUTES.IMAGE_COMPRESSOR} element={<ImageCompressor />} />
+
+        <Route path={ROUTES.RESIZE_IMAGE} element={<ResizeImage />} />
+        <Route path={ROUTES.JPG_TO_PNG} element={<JpgToPng />} />
+        <Route path={ROUTES.PNG_TO_JPG} element={<PngToJpg />} />
+        
       </Routes>
       <Footer />
     </Router>

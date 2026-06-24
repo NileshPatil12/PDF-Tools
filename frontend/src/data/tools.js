@@ -33,6 +33,38 @@ export const pdfTools = [
     path: ROUTES.WORD_TO_PDF,
     color: 'from-amber-500 to-orange-500',
   },
+  {
+    id: 'compress-image',
+    title: 'Compress Image',
+    description: 'Reduce JPG, PNG and WEBP file sizes while maintaining quality.',
+    icon: 'image',
+    path: ROUTES.IMAGE_COMPRESSOR,
+    color: 'from-cyan-500 to-blue-500',
+  },
+  {
+    id: 'resize-image',
+    title: 'Resize Image',
+    description: 'Resize image dimensions instantly.',
+    icon: 'image',
+    path: ROUTES.RESIZE_IMAGE,
+    color: 'from-emerald-500 to-green-500',
+  },
+  {
+    id: 'jpg-to-png',
+    title: 'JPG to PNG',
+    description: 'Convert JPG images to PNG format.',
+    icon: 'image',
+    path: ROUTES.JPG_TO_PNG,
+    color: 'from-orange-500 to-red-500',
+  },
+  {
+    id: 'png-to-jpg',
+    title: 'PNG to JPG',
+    description: 'Convert PNG images to JPG format.',
+    icon: 'image',
+    path: ROUTES.PNG_TO_JPG,
+    color: 'from-violet-500 to-purple-500',
+  },
 ]
 
 export function getToolById(id) {
