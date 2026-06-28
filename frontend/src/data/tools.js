@@ -65,6 +65,22 @@ export const pdfTools = [
     path: ROUTES.PNG_TO_JPG,
     color: 'from-violet-500 to-purple-500',
   },
+  {
+    id: 'pdf-metadata',
+    title: 'PDF Metadata',
+    description: 'View PDF document properties and information.',
+    icon: 'document',
+    path: ROUTES.PDF_METADATA,
+    color: 'from-cyan-500 to-blue-500',
+  },
+  {
+    id: 'reorder-pdf',
+    title: 'Reorder PDF Pages',
+    description: 'Rearrange pages inside a PDF document.',
+    icon: 'document',
+    path: ROUTES.REORDER_PDF,
+    color: 'from-cyan-500 to-blue-500',
+  },
 ]
 
 export function getToolById(id) {

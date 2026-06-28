@@ -20,11 +20,16 @@ export default function ImageCompressor() {
   const [originalSize, setOriginalSize] = useState(0)
   const [compressedSize, setCompressedSize] = useState(0)
 
+  const [actualQuality, setActualQuality] = useState(null)
+  const [targetBytesReached, setTargetBytesReached] = useState(false)
+
   useEffect(() => {
     if (!file) return
 
     setOriginalSize(file.size / 1024)
     setCompressedBlob(null)
+    setCompressedSize(0)
+    setActualQuality(null)
   }, [file])
 
   const compressImage = async () => {
@@ -51,12 +56,13 @@ export default function ImageCompressor() {
 
       ctx.drawImage(img, 0, 0)
 
-      let low = 0.05
+      let low = 0.01
       let high = 1
 
       let bestBlob = null
+      let bestQuality = 1
 
-      for (let i = 0; i < 15; i++) {
+      for (let i = 0; i < 20; i++) {
         const quality = (low + high) / 2
 
         const blob = await new Promise((resolve) =>
@@ -69,6 +75,7 @@ export default function ImageCompressor() {
           high = quality
         } else {
           bestBlob = blob
+          bestQuality = quality
           low = quality
         }
       }
@@ -80,8 +87,14 @@ export default function ImageCompressor() {
       }
 
       setCompressedBlob(bestBlob)
-
       setCompressedSize(bestBlob.size / 1024)
+
+      setActualQuality(Math.round(bestQuality * 100))
+
+      setTargetBytesReached(
+        Math.abs(bestBlob.size - targetBytes) <=
+          targetBytes * 0.1
+      )
 
       setLoading(false)
     }
@@ -172,6 +185,24 @@ export default function ImageCompressor() {
               </div>
             </div>
 
+            <div className="mt-4 flex flex-wrap gap-2">
+              {[100, 200, 500, 1024].map((size) => (
+                <button
+                  key={size}
+                  type="button"
+                  onClick={() => {
+                    setTargetSize(size)
+                    setUnit('KB')
+                  }}
+                  className="rounded-lg border border-white/10 bg-white/5 px-3 py-2 text-sm text-zinc-300 transition hover:bg-white/10"
+                >
+                  {size >= 1024
+                    ? `${size / 1024} MB`
+                    : `${size} KB`}
+                </button>
+              ))}
+            </div>
+
             <div className="mt-6 rounded-xl border border-violet-500/20 bg-violet-500/10 p-4">
               <p className="text-sm text-violet-300">
                 Compress image below{' '}
@@ -245,6 +276,36 @@ export default function ImageCompressor() {
                     {reduction}%
                   </p>
                 </div>
+              </div>
+
+              <div className="mt-6 grid gap-4 sm:grid-cols-2">
+                <div>
+                  <p className="text-xs text-zinc-500">
+                    Target Size
+                  </p>
+
+                  <p className="mt-1 text-lg font-semibold text-cyan-400">
+                    {targetSize} {unit}
+                  </p>
+                </div>
+
+                <div>
+                  <p className="text-xs text-zinc-500">
+                    Quality Used
+                  </p>
+
+                  <p className="mt-1 text-lg font-semibold text-amber-400">
+                    {actualQuality}%
+                  </p>
+                </div>
+              </div>
+
+              <div className="mt-5 rounded-xl border border-emerald-500/20 bg-emerald-500/10 p-4">
+                <p className="text-sm text-emerald-300">
+                  {targetBytesReached
+                    ? '✓ Successfully compressed near target size'
+                    : '⚠ Closest possible size generated'}
+                </p>
               </div>
             </GlassCard>
           )}

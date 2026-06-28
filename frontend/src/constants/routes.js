@@ -10,4 +10,7 @@ export const ROUTES = {
   RESIZE_IMAGE: '/resize-image',
   JPG_TO_PNG: '/jpg-to-png',
   PNG_TO_JPG: '/png-to-jpg',
+
+  PDF_METADATA: '/pdf-metadata',
+  REORDER_PDF: '/reorder-pdf',
 }
