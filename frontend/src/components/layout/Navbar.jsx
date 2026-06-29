@@ -20,7 +20,7 @@ function Logo() {
         <ToolIcon name="document" className="h-5 w-5" />
       </span>
       <span className="text-lg font-semibold tracking-tight text-zinc-50">
-        PDF<span className="text-violet-400">Tools</span>
+        Document<span className="text-violet-400">Tools</span>
       </span>
     </Link>
   )

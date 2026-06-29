@@ -2,7 +2,7 @@ import Button from '../ui/Button'
 import ToolIcon from '../icons/ToolIcons'
 
 const stats = [
-  { value: '4', label: 'PDF tools' },
+  { value: '10+', label: 'Document tools' },
   { value: '100%', label: 'Browser-based' },
   { value: '0', label: 'Account required' },
 ]
@@ -27,18 +27,18 @@ export default function Hero() {
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-violet-400 opacity-75" />
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-violet-400" />
               </span>
-              Free PDF utilities — no signup
+              Free Document utilities — no signup
             </div>
 
             <h1 className="text-4xl font-bold tracking-tight text-zinc-50 sm:text-5xl lg:text-6xl">
-              Every PDF tool you need,{' '}
+              Every Document tool you need,{' '}
               <span className="bg-gradient-to-r from-violet-400 via-fuchsia-400 to-indigo-400 bg-clip-text text-transparent">
                 in one place
               </span>
             </h1>
 
             <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-zinc-400 lg:mx-0">
-              Merge, split, compress, and transform PDFs in seconds. Drag files
+              Merge, split, compress, and transform Documents in seconds. Drag files
               in, pick a tool, and download — fast, private, and built for the
               web.
             </p>

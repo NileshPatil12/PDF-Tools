@@ -1,6 +1,6 @@
 import { ROUTES } from '../constants/routes'
 
-export const pdfTools = [
+export const documentTools = [
   {
     id: 'merge',
     title: 'Merge PDF',
@@ -84,9 +84,9 @@ export const pdfTools = [
 ]
 
 export function getToolById(id) {
-  return pdfTools.find((tool) => tool.id === id)
+  return documentTools.find((tool) => tool.id === id)
 }
 
 export function getToolByPath(path) {
-  return pdfTools.find((tool) => tool.path === path)
+  return documentTools.find((tool) => tool.path === path)
 }

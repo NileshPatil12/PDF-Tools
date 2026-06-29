@@ -19,7 +19,8 @@ const steps = [
   },
 ]
 
-export default function HowItWorks() {
+export default function 
+HowItWorks() {
   return (
     <section id="how-it-works" className="px-4 py-20 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-6xl">

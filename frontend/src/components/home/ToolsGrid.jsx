@@ -1,4 +1,4 @@
-import { pdfTools } from '../../data/tools'
+import { documentTools } from '../../data/tools'
 import SectionHeading from '../ui/SectionHeading'
 import ToolCards from '../ui/ToolCards'
 
@@ -14,12 +14,12 @@ export default function ToolsGrid() {
       <div className="mx-auto max-w-7xl">
         <SectionHeading
           eyebrow="Complete Tool Suite"
-          title="All Your PDF Tools in One Place"
-          description="Powerful utilities designed to make PDF processing effortless. Merge, split, convert, and more — all running securely in your browser."
+          title="All Your Document Tools in One Place"
+          description="Powerful utilities designed to make Document processing effortless. Merge, split, convert, and more — all running securely in your browser."
         />
 
         <div className="mt-12">
-          <ToolCards tools={pdfTools} />
+          <ToolCards tools={documentTools} />
         </div>
       </div>
     </section>
